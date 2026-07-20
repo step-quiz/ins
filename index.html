@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="Step Quiz: recursos per a l'alumnat, material per al professorat i proves externes de matemàtiques. David Arso Civil.">
+  <meta name="author" content="David Arso Civil" />
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://step-quiz.net/">
+
+  <meta property="og:title" content="Step Quiz — Recursos">
+  <meta property="og:description" content="Panell de recursos educatius per a l'alumnat, el professorat i proves externes.">
+  <meta property="og:url" content="https://step-quiz.net/">
+  <meta property="og:image" content="https://step-quiz.net/icon.png">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Step Quiz",
+    "url": "https://step-quiz.net",
+    "author": { "@type": "Person", "name": "David Arso Civil" },
+    "description": "Recursos educatius per a l'alumnat, el professorat i proves externes de matemàtiques."
+  }
+  </script>
+
+  <title>Step Quiz — Recursos per a l'alumnat i el professorat | David Arso Civil</title>
+
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --alum:      #55702e;
+      --alum-soft: #eef2e3;
+      --alum-ring: rgba(85,112,46,0.18);
+
+      --prof:      #7c8f3c;
+      --prof-soft: #f2f5e6;
+      --prof-ring: rgba(124,143,60,0.18);
+
+      --prov:      #9aa35a;
+      --prov-soft: #f5f6ea;
+      --prov-ring: rgba(154,163,90,0.20);
+
+      --text-1: #1c2114;
+      --text-2: #545e42;
+      --text-3: #97a082;
+
+      --surface:  #ffffff;
+      --bg-base:  #f4f6ee;
+      --border:   rgba(30,40,10,0.08);
+
+      --sh-card:  0 1px 2px rgba(40,50,10,0.05), 0 6px 18px rgba(40,50,10,0.07);
+      --sh-lift:  0 4px 8px rgba(40,50,10,0.06), 0 16px 34px rgba(40,50,10,0.13);
+      --r-card:   18px;
+      --r-btn:    100px;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { height: 100%; scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh; min-height: 100dvh;
+      background: var(--bg-base);
+      background-image:
+        radial-gradient(ellipse 70% 45% at 18% 0%,  rgba(124,143,60,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 55% 40% at 85% 100%, rgba(85,112,46,0.10) 0%, transparent 70%);
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      color: var(--text-1);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 62px 20px 66px;
+      overflow-x: hidden;
+    }
+
+    /* ── Animations ── */
+    @keyframes chip-drop {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes card-in {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Floating brand chip (top-left) ── */
+    .brand-chip {
+      position: fixed;
+      top: 14px; left: 14px;
+      z-index: 300;
+      display: flex; align-items: center; gap: 9px;
+      padding: 7px 15px 7px 9px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(30,40,10,0.09);
+      border-radius: var(--r-btn);
+      box-shadow: 0 2px 14px rgba(40,50,10,0.10);
+      text-decoration: none; color: inherit;
+      opacity: 0;
+      animation: chip-drop 0.55s cubic-bezier(0.34,1.56,0.64,1) 0.2s forwards;
+    }
+    .brand-icon { height: 28px; width: 28px; object-fit: contain; flex-shrink: 0; border-radius: 7px; }
+    .brand-text { display: flex; flex-direction: column; gap: 1px; line-height: 1.15; }
+    .brand-name { font-size: 13px; font-weight: 800; color: var(--text-1); }
+    .brand-sub  { font-size: 9.5px; font-weight: 400; color: var(--text-3); white-space: nowrap; }
+
+    /* ── Page layout: 3 columns ── */
+    .page-layout {
+      width: 100%; max-width: 1180px;
+      display: grid;
+      grid-template-columns: 1fr 1.9fr 1.9fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    /* ── Section head ── */
+    .section-head {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 13px;
+    }
+    .cat-pill {
+      display: inline-flex; align-items: center;
+      padding: 6px 16px;
+      border-radius: var(--r-btn);
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 0.7px; text-transform: uppercase;
+      white-space: nowrap; flex-shrink: 0;
+      color: #fff;
+    }
+    .cat-pill.alum { background: var(--alum); }
+    .cat-pill.prof { background: var(--prof); }
+    .cat-pill.prov { background: var(--prov); }
+
+    .cat-rule { flex: 1; height: 1px; background: linear-gradient(to right, rgba(30,40,10,0.12), transparent); }
+
+    /* ── Card grids ── */
+    .alum-cards { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .prof-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .prov-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .prov-cards .span2 { grid-column: 1 / -1; }
+
+    /* ── Card ── */
+    .app-card {
+      background: var(--surface);
+      border-radius: var(--r-card);
+      box-shadow: var(--sh-card);
+      padding: 15px 15px 13px;
+      display: flex; flex-direction: column; gap: 11px;
+      justify-content: space-between;
+      position: relative; overflow: hidden;
+      border-top: 3px solid transparent;
+      opacity: 0;
+      animation: card-in 0.36s ease-out forwards;
+      transition: transform 0.26s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.24s ease;
+      cursor: default;
+    }
+    .app-card::before {
+      content: '';
+      position: absolute; inset: 0; border-radius: inherit;
+      background: linear-gradient(160deg, rgba(255,255,255,0.55) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .app-card.alum { border-top-color: var(--alum); }
+    .app-card.prof { border-top-color: var(--prof); }
+    .app-card.prov { border-top-color: var(--prov); }
+    .app-card:hover { transform: translateY(-4px) scale(1.004); }
+    .app-card.alum:hover { box-shadow: var(--sh-lift), 0 0 0 3px var(--alum-ring); }
+    .app-card.prof:hover { box-shadow: var(--sh-lift), 0 0 0 3px var(--prof-ring); }
+    .app-card.prov:hover { box-shadow: var(--sh-lift), 0 0 0 3px var(--prov-ring); }
+
+    .d1 { animation-delay: 0.55s; } .d2 { animation-delay: 0.63s; }
+    .d3 { animation-delay: 0.71s; } .d4 { animation-delay: 0.79s; }
+    .d5 { animation-delay: 0.87s; } .d6 { animation-delay: 0.95s; }
+    .d7 { animation-delay: 1.03s; } .d8 { animation-delay: 1.11s; }
+    .d9 { animation-delay: 1.19s; }
+
+    /* ── Card header ── */
+    .card-head { display: flex; align-items: center; gap: 10px; }
+    .card-icon { width: 36px; height: 36px; object-fit: contain; border-radius: 9px; flex-shrink: 0; }
+    .card-emoji-box {
+      width: 36px; height: 36px; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 19px; flex-shrink: 0;
+    }
+    .card-emoji-box.alum { background: var(--alum-soft); }
+    .card-emoji-box.prof { background: var(--prof-soft); }
+    .card-emoji-box.prov { background: var(--prov-soft); }
+
+    .card-title { font-size: 12.5px; font-weight: 700; color: var(--text-1); line-height: 1.3; }
+
+    /* ── Card footer ── */
+    .card-foot { display: flex; align-items: center; gap: 8px; }
+    .card-url {
+      flex: 1; min-width: 0;
+      font-family: 'SF Mono','Fira Code','Cascadia Code',monospace;
+      font-size: 9.5px; color: var(--text-3);
+      background: var(--bg-base); border: 1px solid var(--border);
+      border-radius: 7px; padding: 4px 8px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .open-btn {
+      flex-shrink: 0; min-height: 32px; padding: 0 13px;
+      border-radius: var(--r-btn); font-size: 11.5px; font-weight: 700;
+      color: #fff; border: none; cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 5px;
+      transition: filter 0.18s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .open-btn.alum { background: var(--alum); }
+    .open-btn.prof { background: var(--prof); }
+    .open-btn.prov { background: var(--prov); }
+    .open-btn:hover  { filter: brightness(1.1); transform: scale(1.05); }
+    .open-btn:active { transform: scale(0.96); filter: brightness(0.95); }
+
+    .arrow-icon { width: 11px; height: 11px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    /* ── Footer ── */
+    footer {
+      position: fixed; bottom: 0; left: 0; width: 100%;
+      background: rgba(244,246,238,0.88);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      padding: 9px 16px;
+      padding-bottom: max(9px, env(safe-area-inset-bottom));
+      z-index: 100;
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; flex-wrap: wrap; text-align: center;
+    }
+    footer span { font-size: 0.78em; color: var(--text-2); }
+    footer a { color: var(--text-2); text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 980px) {
+      .page-layout { grid-template-columns: 1fr 1fr; }
+      .alum-cards { grid-template-columns: 1fr 1fr; }
+      .prov-cards .span2 { grid-column: auto; }
+    }
+    @media (max-width: 640px) {
+      body { padding: 68px 16px 74px; }
+      .page-layout { grid-template-columns: 1fr; gap: 26px; }
+      .alum-cards, .prof-cards, .prov-cards { grid-template-columns: 1fr; }
+      .prov-cards .span2 { grid-column: auto; }
+      .brand-sub { display: none; }
+    }
+    @media (max-width: 380px) {
+      .card-url { font-size: 9px; }
+      .open-btn { padding: 0 11px; font-size: 10.5px; min-height: 30px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Floating brand chip (top-left) ── -->
+  <div class="brand-chip">
+    <img src="icon-petjada.png" alt="Step Quiz" class="brand-icon" onerror="this.style.display='none'">
+    <div class="brand-text">
+      <span class="brand-name">Step Quiz</span>
+      <span class="brand-sub">Recursos educatius · David Arso Civil</span>
+    </div>
+  </div>
+
+  <!-- ── 3-column layout ── -->
+  <div class="page-layout">
+
+    <!-- ───── Columna 1: Material per l'alumnat ───── -->
+    <div>
+      <div class="section-head">
+        <span class="cat-pill alum">Alumnat</span>
+        <div class="cat-rule"></div>
+      </div>
+
+      <div class="alum-cards">
+
+        <div class="app-card alum d1">
+          <div class="card-head">
+            <img src="icon.png" alt="" class="card-icon" onerror="this.style.display='none'">
+            <h2 class="card-title">Step Quiz</h2>
+          </div>
+          <div class="card-foot">
+            <div class="card-url">step-quiz.net</div>
+            <a class="open-btn alum" href="https://step-quiz.net/" target="_blank" rel="noopener">
+              Obre <svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="app-card alum d2">
+          <div class="card-head">
+            <img src="icon-green.png" alt="" class="card-icon" onerror="this.style.display='none'">
+            <h2 class="card-title">Step Quiz (adaptat)</h2>
+          </div>
+          <div class="card-foot">
+            <div class="card-url">step-quiz.net/a/a-index</div>
+            <a class="open-btn alum" href="https://step-quiz.net/a/a-index" target="_blank" rel="noopener">
+              Obre <svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ───── Columna 2: Material pel professorat ───── -->
+    <div>
+      <div class="section-head">
+        <span class="cat-pill prof">Professorat</span>
+        <div class="cat-rule"></div>
+      </div>
+
+      <div class="prof-cards">
+
+        <div class="app-card prof d3">
+          <div class="card-head">
+            <div class="card-emoji-box prof">🗂️</div>
+            <h2 class="card-title">Banc de recursos didàctics</h2>
+          </div>
+          <div class="card-foot">
+            <div class="card-url">m.step-quiz.net</div>
+            <a class="open-btn prof" href="https://m.step-quiz.net/" target="_blank" rel="noopener">
+              Obre <svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="app-card prof d4">
+          <div class="card-head">
+            <div class="card-emoji-box prof">📘</div>
+            <h2 class="card-title">Llibres de text</h2>
+          </div>
+          <div class="card-foot">
+            <div class="card-url">llibre.step-quiz.net</div>
+            <a class="open-btn prof" href="https://llibre.step-quiz.net/" target="_blank" rel="noopener">
+              Obre <svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="app-card prof d5">
+          <div class="card-head">
+            <div class="card-emoji-box prof">📐</div>
+            <h2 class="card-title">Material Catriona Agg</h2>
+          </div>
+          <div class="card-foot">
+            <div class="card-url">cagg.step-quiz.net</div>
+            <a class="open-btn prof" href="https://cagg.step-quiz.net/" target="_blank" rel="noopener">
+              Obre <svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="app-card prof d6">
+          <div class="card-head">
+            <img src="icon-karel.png" alt="Karel" class="card-icon" onerror="this.style.display='none'">
+            <h2 class="card-title">Programació de zero</h2>
+          </div>
+          <div class="card-foot">
+            <div class="card-url">karelcat.step-quiz.net</div>
+            <a class="open-btn prof" href="https://karelcat.step-quiz.net/" target="_blank" rel="noopener">
+              Obre <svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ───── Columna 3: Proves externes ───── -->
+    <div>
+      <div class="section-head">
+        <span class="cat-pill prov">Proves externes</span>
+        <div class="cat-rule"></div>
+      </div>
+
+      <div class="prov-cards">
+
+        <div class="app-card prov d7">
+          <div class="card-head">
+            <div class="card-emoji-box prov">🦘</div>
+            <h2 class="card-title">Prova Cangur</h2>
+          </div>
+          <div class="card-foot">
+            <div class="card-url">cangurcat.step-quiz.net</div>
+            <a class="open-btn prov" href="https://cangurcat.step-quiz.net/" target="_blank" rel="noopener">
+              Obre <svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="app-card prov d8">
+          <div class="card-head">
+            <img src="icon_cb.png" alt="" class="card-icon" onerror="this.style.display='none'">
+            <h2 class="card-title">Competència matemàtica</h2>
+          </div>
+          <div class="card-foot">
+            <div class="card-url">cb.step-quiz.net</div>
+            <a class="open-btn prov" href="https://cb.step-quiz.net/" target="_blank" rel="noopener">
+              Obre <svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="app-card prov d9 span2">
+          <div class="card-head">
+            <div class="card-emoji-box prov">🎓</div>
+            <h2 class="card-title">PAU — Prova Accés a la Universitat</h2>
+          </div>
+          <div class="card-foot">
+            <div class="card-url">pau.step-quiz.net</div>
+            <a class="open-btn prov" href="https://pau.step-quiz.net/" target="_blank" rel="noopener">
+              Obre <svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /.page-layout -->
+
+  <!-- Footer -->
+  <footer>
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" style="flex-shrink:0;">
+      <img alt="Llicència CC BY-NC-ND" style="border-width:0;height:28px;"
+           src="https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png"
+           onerror="this.style.display='none'" />
+    </a>
+    <span>
+      © 2026 <strong>DAVID ARSO CIVIL</strong>. Ús educatiu lliure.
+      Prohibida la comercialització i la modificació
+      (<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>).
+    </span>
+  </footer>
+
+</body>
+</html>
