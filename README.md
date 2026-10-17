@@ -1,5 +1,23 @@
 # ins
-Material per l'institut
+
+Portal d'entrada als recursos de matemàtiques per a l'institut: una sola pàgina (`index.html`,
+HTML + CSS sense JavaScript ni compilació) amb targetes que enllacen a cada web del projecte
+Step Quiz.
+
+## Contingut del portal
+
+| Secció | Targetes (destí) |
+|---|---|
+| **Alumnat** | Step Quiz (`step-quiz.net`), Step Quiz adaptat (`step-quiz.net/a/a-index`), Repàs de l'ESO (`repas.step-quiz.net`), Geometria sintètica (`geom.step-quiz.net`) |
+| **Professorat** | Banc de recursos didàctics (`m.step-quiz.net`), Llibres de text ESO (`llibre.step-quiz.net`), Batxi PRO (`pd.step-quiz.net`), Programació informàtica (`karelcat.step-quiz.net`) |
+| **Proves** | Prova Cangur (`cangurcat.step-quiz.net`), Competència matemàtica (`cb.step-quiz.net`), PAU (`pau.step-quiz.net`) |
+| **Formularis** | Enviar una fotografia i enviar un codi d'activitat Step Quiz (Google Forms) |
+
+Les icones de les targetes són els fitxers `icon*.png` de l'arrel. `icon-petjada.png` no el fa
+servir cap targeta.
+
+Per afegir o treure un web, cal editar la targeta corresponent (`<div class="app-card …">`)
+dins de la secció adequada d'`index.html`.
 
 <!-- atribucio-centre:inici -->
 
