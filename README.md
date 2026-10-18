@@ -16,6 +16,8 @@ Step Quiz.
 Les icones de les targetes són els fitxers `icon*.png` de l'arrel. `icon-petjada.png` no el fa
 servir cap targeta.
 
+`.github/comprova-enllacos.py` comprova que totes les targetes porten a webs que funcionen. GitHub l'executa a cada canvi a `main`, cada dilluns al matí i a mà (`.github/workflows/enllacos.yml`, «Enllaços» a la pestanya Actions).
+
 Per afegir o treure un web, cal editar la targeta corresponent (`<div class="app-card …">`)
 dins de la secció adequada d'`index.html`.
 
