@@ -8,7 +8,7 @@ Step Quiz.
 
 | Secció | Targetes (destí) |
 |---|---|
-| **Alumnat** | Step Quiz (`step-quiz.net`), Step Quiz adaptat (`step-quiz.net/a/a-index`), Repàs de l'ESO (`repas.step-quiz.net`), Geometria sintètica (`geom.step-quiz.net`) |
+| **Alumnat** | Step Quiz (`step-quiz.net`), Step Quiz adaptat (`a.step-quiz.net`), Repàs de l'ESO (`repas.step-quiz.net`), Geometria sintètica (`geom.step-quiz.net`) |
 | **Professorat** | Banc de recursos didàctics (`m.step-quiz.net`), Llibres de text ESO (`llibre.step-quiz.net`), Batxi PRO (`pd.step-quiz.net`), Programació informàtica (`karelcat.step-quiz.net`) |
 | **Proves** | Prova Cangur (`cangurcat.step-quiz.net`), Competència matemàtica (`cb.step-quiz.net`), PAU (`pau.step-quiz.net`) |
 | **Formularis** | Enviar una fotografia i enviar un codi d'activitat Step Quiz (Google Forms) |
